@@ -1,0 +1,38 @@
+Za tabelu "tabAlbumi":
+
+CREATE TABLE [dbo].[tabAlbumi] (
+    [Id]           VARCHAR (4)   NOT NULL,
+    [vchrIzvodjac] NVARCHAR (50) NULL,
+    [vchrAlbum]    NVARCHAR (50) NULL,
+    [dateGodina]   DATE          NULL,
+    [vchrIzdavac]  NVARCHAR (30) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+Za tabelu "tabPesme":
+
+CREATE TABLE [dbo].[tabPesme] (
+    [vchrIdAlbuma]   VARCHAR (4)  NOT NULL,
+    [vchrNazivPesme] VARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_tabPesme] PRIMARY KEY CLUSTERED ([vchrNazivPesme] ASC),
+    FOREIGN KEY ([vchrIdAlbuma]) REFERENCES [dbo].[tabAlbumi] ([Id])
+);
+
+
+Punjenje tabela zapisima:
+
+INSERT INTO [dbo].[tabAlbumi] (Id, vchrIzvodjac,vchrAlbum,dateGodina,vchrIzdavac) VALUES ('1','Bajaga i Instruktori','Pozitivna geografija','01/30/1984','PGP-RTB')
+INSERT INTO [dbo].[tabAlbumi] (Id, vchrIzvodjac,vchrAlbum,dateGodina,vchrIzdavac) VALUES ('2','Zdravko Colic','PGP-RTB','1/1/1977','Jugoton')
+INSERT INTO [dbo].[tabAlbumi] (Id, vchrIzvodjac,vchrAlbum,dateGodina,vchrIzdavac) VALUES ('3','Riblja Corba','Buvlja pijaca','10/29/1982','PGP-RTB')
+
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('1','Berlin')
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('1','Poljubi me')
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('1','Tamara')
+
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('2','Pjevam danju, pjevam nocu')
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('2','Jedna zima sa Kristinom')
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('2','Zagrli me')
+
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('3','U dva ce cistaci odneti djubre')
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('3','Baby, Baby, I dont wanna cry')
+INSERT INTO [dbo].[tabPesme](vchrIdAlbuma,vchrNazivPesme)VALUES('3','Necu da zivim u bloku 65')
