@@ -4,9 +4,11 @@ CREATE TABLE [dbo].[tabAlbumi] (
     [Id]           VARCHAR (4)   NOT NULL,
     [vchrIzvodjac] NVARCHAR (50) NULL,
     [vchrAlbum]    NVARCHAR (50) NULL,
+    [vchrZanr]     NVARCHAR (20) NULL, 
     [dateGodina]   DATE          NULL,
     [vchrIzdavac]  NVARCHAR (30) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
+);
 );
 
 Za tabelu "tabPesme":
